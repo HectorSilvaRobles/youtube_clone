@@ -63,7 +63,7 @@ router.post('/login', (req, res) => {
     })
 })
 
-// Logout users endpoint
+// Logout endpoint
 router.get("/logout", auth, (req, res) => {
     User.findOneAndUpdate({_id: req.user._id}, {token: "", tokenExp: ""}, (err, doc) => {
         if(err){
