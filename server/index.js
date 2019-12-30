@@ -31,7 +31,7 @@ const port = process.env.PORT || 5000
 
 app.get('/', (req, res) => {
     res.json({
-        "hello": "I am happy to deploy our app"
+        "hello": "I am happy to deploy our application"
     })
 })
 
