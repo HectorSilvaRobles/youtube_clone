@@ -17,6 +17,12 @@ router.get("/auth", auth, (req, res) => {
     })
 })
 
+app.get('/', (req, res) => {
+    res.json({
+        "hello": "I am happy to deploy our application"
+    })
+})
+
 
 // Register new users endpoint
 router.post("/register", (req, res) => {
