@@ -32,6 +32,8 @@ router.post("/register", (req, res) => {
 
 // Login users
 router.post('/login', (req, res) => {
+
+    // find the users email
     User.findOne({email: req.body.email}, (err, user) => {
         if(!user){
             return res.json({
@@ -40,6 +42,7 @@ router.post('/login', (req, res) => {
             })
         }
 
+        // compare password
         user.comparePassword(req.body.password, (err, isMatch) => {
             if(!isMatch){
                 return res.json({
@@ -48,6 +51,7 @@ router.post('/login', (req, res) => {
                 });
             }
 
+            // Generate token
             user.generateToken((err, user) => {
                 if(err) {
                     return res.status(400).send(err);
