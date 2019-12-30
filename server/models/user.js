@@ -36,31 +36,23 @@ const userSchema = mongoose.Schema({
 
 // Hashing User Passwords
 userSchema.pre('save', function(next){
-    console.log('starting hash process')
-    console.log(this.User)
     var user = this;   
-    console.log('this is the user', user)
 
     // only hash the password if it has been modified (or is new)
     if(user.isModified('password')){
         console.log('password has been modified')
         // generate a salt
         bcrypt.genSalt(saltRounds, (err, salt) => {
-            console.log('generating salt')
             if(err) {
-                console.log(err)
                 return next(err);
             }
         
             // hash the password along with our new salt
             bcrypt.hash(user.password, salt, function(err, hash) {
-                console.log('hit bcrypt hashing')
                 if(err){
-                    console.log('error bcrypt', err)
                     return next(err);
                 }
                 user.password = hash
-                console.log(user.password)
                 next();
             })
         })
