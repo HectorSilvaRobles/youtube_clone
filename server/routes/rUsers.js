@@ -19,7 +19,7 @@ router.get("/auth", auth, (req, res) => {
 
 app.get('/', (req, res) => {
     res.json({
-        "hello": "I am happy to deploy our app"
+        "hello": "I am happy to deploy our appdaf"
     })
 })
 
