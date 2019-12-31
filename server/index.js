@@ -3,6 +3,8 @@ const app = express();
 const path = require('path');
 const cors =require('cors');
 
+const config = require('./config/key')
+
 require('dotenv').config();
 const {MONGOODB, PORT} = process.env;
 
@@ -11,7 +13,7 @@ const cookieParser = require('cookie-parser');
 
 // Connecting Mongoose DataBase
 const mongoose = require('mongoose');
-mongoose.connect(`${MONGOODB}`, { 
+mongoose.connect(`${config.mongoURI}`, { 
     useNewUrlParser: true,
     useCreateIndex: true,
 })
@@ -30,6 +32,4 @@ app.use('/api/users', require('./routes/rUsers'));
 const port = process.env.PORT || 5000
 
 
-
-
-app.listen(port, () => console.log(`server running on port ${PORT}`));
+app.listen(port, () => console.log(`server running on port ${port}`));
