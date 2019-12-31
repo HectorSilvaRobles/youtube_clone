@@ -5,8 +5,6 @@ const cors =require('cors');
 
 const config = require('./config/key')
 
-require('dotenv').config();
-const {MONGOODB, PORT} = process.env;
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -15,7 +13,7 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 console.log(config)
 
-mongoose.connect(`${MONGOODB}`, { 
+mongoose.connect(`${config.mongoURI}`, { 
     useNewUrlParser: true,
     useCreateIndex: true,
 })
@@ -31,8 +29,8 @@ app.use(cors())
 
 app.use('/api/users', require('./routes/rUsers'));
 
-const port = process.env.PORT || 6000
-console.log(port)
+const port = process.env.PORT || 5000
+console.log(process.env.PORT)
 
 
 app.listen(port, () => console.log(`server running on port ${port}`));
