@@ -2,7 +2,7 @@
   "name": "react-blog",
   "version": "1.0.0",
   "description": "Boiler plate for MERN stack applications.",
-  "main": "index.js",
+  "main": "server/index.js",
   "engine": {
     "node": "10.15.3",
     "npm": "6.4.1"
