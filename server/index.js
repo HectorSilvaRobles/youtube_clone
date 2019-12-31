@@ -29,7 +29,7 @@ app.use(cors())
 
 app.use('/api/users', require('./routes/rUsers'));
 
-const port = process.env.PORT || 5000
+const port = 6000
 console.log(process.env.PORT)
 
 
