@@ -16,6 +16,7 @@ console.log(config)
 mongoose.connect(`${config.mongoURI}`, { 
     useNewUrlParser: true,
     useCreateIndex: true,
+    userUnifiedTopology: true
 })
 .then(()=> console.log('MongooDB connected'))
 .catch(err => console.error('there was error', err))
