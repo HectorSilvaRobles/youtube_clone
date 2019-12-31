@@ -2,12 +2,13 @@
   "name": "react-blog",
   "version": "1.0.0",
   "description": "Boiler plate for MERN stack applications.",
-  "main": "server/index.js",
+  "main": "index.js",
   "engine": {
     "node": "10.15.3",
     "npm": "6.4.1"
   },
   "scripts": {
+    "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Hector Silva-Robles",
