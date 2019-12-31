@@ -4,7 +4,6 @@ const { User } = require('../models/user')
 
 const {auth} = require('../middleware/auth.js');
 
-
 router.get("/auth", auth, (req, res) => {
     res.status(200).json({
         _id: req.user._id,
@@ -14,15 +13,14 @@ router.get("/auth", auth, (req, res) => {
         name: req.user.name,
         lastname: req.user.lastname,
         role: req.user.role
-    })
-})
+    });
+});
 
 app.get('/', (req, res) => {
     res.json({
         "hello": "I am happy to deploy our app"
     })
-})
-
+});
 
 // Register new users endpoint
 router.post("/register", (req, res) => {
