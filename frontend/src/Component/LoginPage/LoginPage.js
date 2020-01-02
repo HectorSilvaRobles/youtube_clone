@@ -86,16 +86,16 @@ function LoginPage(props){
                         <form onSubmit={handleSubmit} style={{width: '350px'}}>
                             <Form.Item required>
                                 <Input
-                                id="email"
-                                prefix={<Icon type="user" style={{color: 'rgba(0,0,0,0.25'}} />}
-                                placeholder="Enter your email"
-                                type="email"
-                                value={values.email}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                className={
-                                    errors.email && touched.email ? 'text-input error' : 'text-input'
-                                }
+                                    id="email"
+                                    prefix={<Icon type="user" style={{color: 'rgba(0,0,0,0.25'}} />}
+                                    placeholder="Enter your email"
+                                    type="email"
+                                    value={values.email}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    className={
+                                        errors.email && touched.email ? 'text-input error' : 'text-input'
+                                    }
                                 />
                                 {errors.email && touched.email && (
                                     <div className="input-feedback">{errors.email}</div>
@@ -106,7 +106,7 @@ function LoginPage(props){
                                 <Input
                                     id="password"
                                     prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,0.25'}} />}
-                                    placholder="Enter your password"
+                                    placeholder="Enter your password"
                                     type="password"
                                     value={values.password}
                                     onChange={handleChange}
@@ -154,7 +154,7 @@ function LoginPage(props){
                         </form>
                     </div>
                 );
-            }};
+            }}
         </Formik>
     );
 };
