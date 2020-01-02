@@ -23,7 +23,6 @@ function LoginPage(props){
 
     return (
         <Formik
-
             // initializing values for login form
             initialValues={{
                 email: initialEmail,
@@ -46,6 +45,7 @@ function LoginPage(props){
 
                     dispatch(loginUser(dataToSubmit))
                     .then(res => {
+                        console.log(res)
                         if(res.payload.loginSuccess){
                             window.localStorage.setItem('userId', res.payload.userId)
                             if(rememberMe === true){
@@ -140,12 +140,12 @@ function LoginPage(props){
                                 <a className="login-form-forgot" href="/reset_user" style={{float: 'right'}} >Forgot Password</a>
                                 <div>
                                     <Button
-                                    type="primary"
-                                    htmlType="submit"
-                                    className="login-form-button"
-                                    style={{minWidth: '100%'}}
-                                    disabled={isSubmitting}
-                                    onSubmit={handleSubmit}>
+                                        type="primary"
+                                        htmlType="submit"
+                                        className="login-form-button"
+                                        style={{minWidth: '100%'}}
+                                        disabled={isSubmitting}
+                                        onSubmit={handleSubmit}>
                                         Log in
                                     </Button>
                                 </div>
