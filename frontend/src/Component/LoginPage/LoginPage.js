@@ -23,7 +23,6 @@ function LoginPage(props){
 
     return (
         <Formik
-
             // initializing values for login form
             initialValues={{
                 email: initialEmail,
@@ -43,9 +42,11 @@ function LoginPage(props){
                         email: values.email,
                         password: values.password
                     };
-
+                    
+                    // Sending user input data to loginUser in redux
                     dispatch(loginUser(dataToSubmit))
                     .then(res => {
+                        console.log(res)
                         if(res.payload.loginSuccess){
                             window.localStorage.setItem('userId', res.payload.userId)
                             if(rememberMe === true){
@@ -53,7 +54,10 @@ function LoginPage(props){
                             } else {
                                 localStorage.removeItem('rememberMe');
                             }
+
+                            // After user successfully logs in they will redirected to the home page '/'
                             props.history.push('/');
+                            
                         } else {
                             setFormErrorMessage('Check your Account or Password again')
                         }
@@ -140,12 +144,12 @@ function LoginPage(props){
                                 <a className="login-form-forgot" href="/reset_user" style={{float: 'right'}} >Forgot Password</a>
                                 <div>
                                     <Button
-                                    type="primary"
-                                    htmlType="submit"
-                                    className="login-form-button"
-                                    style={{minWidth: '100%'}}
-                                    disabled={isSubmitting}
-                                    onSubmit={handleSubmit}>
+                                        type="primary"
+                                        htmlType="submit"
+                                        className="login-form-button"
+                                        style={{minWidth: '100%'}}
+                                        disabled={isSubmitting}
+                                        onSubmit={handleSubmit}>
                                         Log in
                                     </Button>
                                 </div>
