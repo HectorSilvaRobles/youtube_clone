@@ -42,7 +42,8 @@ function LoginPage(props){
                         email: values.email,
                         password: values.password
                     };
-
+                    
+                    // Sending user input data to loginUser in redux
                     dispatch(loginUser(dataToSubmit))
                     .then(res => {
                         console.log(res)
@@ -53,7 +54,10 @@ function LoginPage(props){
                             } else {
                                 localStorage.removeItem('rememberMe');
                             }
+
+                            // After user successfully logs in they will redirected to the home page '/'
                             props.history.push('/');
+                            
                         } else {
                             setFormErrorMessage('Check your Account or Password again')
                         }
