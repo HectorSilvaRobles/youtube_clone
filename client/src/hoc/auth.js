@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { auth } from '../actions/user_actions';
 import {useSelector, useDispatch} from 'react-redux';
 
-export default function (ComposedClass, reload, admineRoute=null){
+export default function (ComposedClass, reload, adminRoute=null){
     function AuthenticationCheck(props) {
 
         let user = useSelector(state => state.user);
