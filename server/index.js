@@ -31,7 +31,13 @@ app.get('/', (req, res) => {
     })
 });
 
+
+// user infor endpoints
 app.use('/api/users', require('./routes/rUsers'));
+
+// video endpoint
+app.use('/api/video', require('./routes/video'));
+
 
 if(process.env.NODE_ENV === 'production'){
 
