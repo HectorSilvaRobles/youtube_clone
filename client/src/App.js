@@ -7,6 +7,8 @@ import Login from './Component/LoginPage/LoginPage'
 import Register from './Component/RegisterPage/RegisterPage'
 import NavBar from './Component/NavBar/NavBar'
 
+import UploadVideopage from './Component/UploadVideoPage/UploadVideoPage'
+
 
 function App() {
   return (
@@ -15,8 +17,9 @@ function App() {
       <div style={{paddingTop: '75px', minHeight: 'calc(100vh - 80px'}}>
         <Switch>
           <Route exact path='/' component={Auth(Home, null)} />
-          <Route path='/login' component={Auth(Login, false)} />
-          <Route path='/register' component={Auth(Register, false)} />
+          <Route exact path='/login' component={Auth(Login, false)} />
+          <Route exact path='/register' component={Auth(Register, false)} />
+          <Route exact path='/video/upload' component={Auth(UploadVideopage, true)} />
         </Switch>
       </div>
     </Suspense>
